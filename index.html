@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKI L1FE ANALYTICS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,7 +18,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #0a1829;
     }
 
@@ -48,6 +51,21 @@
       height: 100%;
     }
 
+    /* Background image overlay with 20% opacity */
+    .background-image-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(100,200,255);stop-opacity:0.3" /><stop offset="100%" style="stop-color:rgb(57,208,231);stop-opacity:0.1" /></linearGradient></defs><circle cx="200" cy="150" r="150" fill="url(%23grad1)" opacity="0.4"/><circle cx="1000" cy="600" r="200" fill="url(%23grad1)" opacity="0.3"/><path d="M 0 400 Q 300 200 600 400 T 1200 400" stroke="rgb(100,200,255)" stroke-width="2" fill="none" opacity="0.2"/></svg>');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
     /* Content overlay */
     .content-wrapper {
       position: relative;
@@ -56,22 +74,22 @@
     }
 
     .center-block {
-      background: rgba(10, 24, 41, 0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 30px;
-      padding: 60px 50px;
+      background: rgba(10, 24, 41, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 35px;
+      padding: 70px 60px;
       text-align: center;
-      min-width: 350px;
-      border: 1px solid rgba(100, 200, 255, 0.15);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      min-width: 400px;
+      border: 2px solid rgba(100, 200, 255, 0.2);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08);
       animation: fadeInUp 0.8s ease-out;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -80,50 +98,56 @@
     }
 
     .center-block h1 {
-      margin: 0 0 30px 0;
-      font-size: 3em;
-      font-weight: 300;
-      letter-spacing: 2px;
+      margin: 0 0 15px 0;
+      font-size: 4.5em;
+      font-weight: 900;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: -2px;
       background: linear-gradient(135deg, #64c8ff 0%, #4da3d5 50%, #64c8ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 30px rgba(100, 200, 255, 0.2);
+      line-height: 1.1;
     }
 
-    .subtitle {
-      font-size: 1em;
-      color: rgba(200, 220, 255, 0.6);
-      margin-bottom: 25px;
-      letter-spacing: 0.5px;
-      font-weight: 300;
+    .market-label {
+      font-size: 1.3em;
+      color: rgba(200, 220, 255, 0.7);
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .center-block a {
       display: inline-block;
-      margin-top: 10px;
-      font-size: 1.1em;
+      margin-top: 20px;
+      font-size: 1.15em;
       color: #fff;
       background: linear-gradient(135deg, #1e71b6 0%, #2a8eca 100%);
-      padding: 14px 38px;
+      padding: 16px 42px;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.4s ease;
-      border: 1px solid rgba(100, 200, 255, 0.3);
+      border: 2px solid rgba(100, 200, 255, 0.4);
       cursor: pointer;
-      font-weight: 500;
-      box-shadow: 0 10px 30px rgba(30, 113, 182, 0.2);
+      font-weight: 600;
+      box-shadow: 0 12px 35px rgba(30, 113, 182, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .center-block a:hover {
       background: linear-gradient(135deg, #39d0e7 0%, #2db8d5 100%);
       color: #0a1829;
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(57, 208, 231, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(57, 208, 231, 0.35);
     }
 
     .center-block a:active {
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
 
     /* Meditation zen elements */
@@ -133,49 +157,52 @@
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 2;
+      z-index: 2.5;
       pointer-events: none;
     }
 
     .zen-dot {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(100, 200, 255, 0.15);
+      width: 3px;
+      height: 3px;
+      background: rgba(100, 200, 255, 0.2);
       border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
+      animation: float 8s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.1; }
-      50% { transform: translateY(-20px) translateX(10px); opacity: 0.4; }
+      50% { transform: translateY(-25px) translateX(15px); opacity: 0.4; }
     }
 
     @media (max-width: 768px) {
       .center-block {
         min-width: 85vw;
-        padding: 40px 25px;
-        border-radius: 20px;
+        padding: 50px 25px;
+        border-radius: 25px;
       }
 
       .center-block h1 {
-        font-size: 2em;
-        margin-bottom: 20px;
+        font-size: 2.8em;
+        margin-bottom: 10px;
       }
 
-      .subtitle {
-        font-size: 0.9em;
+      .market-label {
+        font-size: 1em;
         margin-bottom: 20px;
       }
 
       .center-block a {
         font-size: 1em;
-        padding: 12px 32px;
+        padding: 14px 36px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Background image overlay -->
+  <div class="background-image-overlay"></div>
+
   <!-- Zen floating elements -->
   <div class="zen-dots" id="zenContainer"></div>
 
@@ -206,24 +233,24 @@
   <!-- Content Overlay -->
   <div class="content-wrapper">
     <div class="center-block">
-      <h1>SKI L1FE</h1>
-      <p class="subtitle">Analytics</p>
-      <a href="https://t.me/SKIL1FE" target="_blank">Переглянути канал</a>
+      <h1>SKI LIFE</h1>
+      <p class="market-label">Market Analytics</p>
+      <a href="https://t.me/SKIL1FE" target="_blank">Touch The Beauty</a>
     </div>
   </div>
 
   <script>
     // Generate floating zen dots
     const zenContainer = document.getElementById('zenContainer');
-    const dotCount = 15;
+    const dotCount = 20;
 
     for (let i = 0; i < dotCount; i++) {
       const dot = document.createElement('div');
       dot.className = 'zen-dot';
       dot.style.left = Math.random() * 100 + '%';
       dot.style.top = Math.random() * 100 + '%';
-      dot.style.animationDelay = Math.random() * 2 + 's';
-      dot.style.animationDuration = (4 + Math.random() * 3) + 's';
+      dot.style.animationDelay = Math.random() * 3 + 's';
+      dot.style.animationDuration = (6 + Math.random() * 4) + 's';
       zenContainer.appendChild(dot);
     }
   </script>
